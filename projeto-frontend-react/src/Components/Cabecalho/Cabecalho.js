@@ -1,9 +1,10 @@
 import React from "react";
-import { Header, Figura, Logo, Titulo, Menu, ItensMenu } from "./Style";
+import { Header, Figura, Logo, Titulo, Menu, ItensMenu, Carrinho } from "./Style";
 import logo from '../../Assets/Images/logo.png'
+import carrinho from '../../Assets/Images/carrinho.png'
 
-export default function Cabecalho () {
-    return(
+export default function Cabecalho (props) {
+    return (
         <Header>
             <Figura>
                 <Logo src={logo} />
@@ -17,6 +18,7 @@ export default function Cabecalho () {
                     <ItensMenu>Contato</ItensMenu>
                 </Menu>
             </nav>
+            <Carrinho src={carrinho} onClick={props.showCarrinho} />
         </Header>
     )
 }

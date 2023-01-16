@@ -1,10 +1,12 @@
+import { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components';
-import Produtos from "./Produtos.json"
 import Cabecalho from './Components/Cabecalho/Cabecalho';
+import Carrinho from './Components/Carrinho/Carrinho';
 import Aside from './Components/Aside/Aside';
-import Produto from './Components/Produtos/Produto';
-import { useState } from 'react';
+import Produtos from './Components/Produtos/Produtos';
+import Footer from './Components/Footer/Footer';
+import background from './Assets/Images/background.png'
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -20,22 +22,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.main`
+    background-image: url(${background});
+    background-size: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 20% 1fr;
-    height: 100vh;
-    width: 100vw;
-`
-
-const Principal = styled.section`
-    background-color: #0C001C;
-    box-sizing: border-box;
-    display: grid;
-    grid-gap: 2em 1em;
-    grid-template-columns: repeat(4, 1fr);
-    height: 100%;
-    width: 100%;
-    padding: 1em;
+    grid-template-columns: 20% 1fr 0;
+    padding-bottom: 1em;
 `
 
 function App() {
@@ -45,6 +37,9 @@ function App() {
     const [nomeProduto, setNomeProduto] = useState("")
     const [filtro, setFiltro] = useState(false)
     const [ordenacao, setOrdenacao] = useState(1)
+    const [carrinho, setCarrinho] = useState(false)
+    const [itensCarrinho] = useState(localStorage.getItem('carrinho'))
+    const [itens, setItens] = useState(itensCarrinho ? JSON.parse(itensCarrinho) : [])
 
     const handleMinimo = (event) => {
         setMinimo(event.target.value)
@@ -55,54 +50,77 @@ function App() {
     }
 
     const handleNomeProduto = (event) => {
-        setNomeProduto(event.target.value)
+        setNomeProduto(event.target.value.toLowerCase())
     }
 
     const handleOrdenacao = (event) => {
         setOrdenacao(event.target.value)
     }
 
+    const showCarrinho = () => {
+        setCarrinho(!carrinho)
+    }
+
+    const addItem = (nome, preco) => {
+
+        const copiaCarrinho = [...itens]
+        const item = copiaCarrinho.find((produto) => produto.nome === nome)
+
+        if (!item) {
+            copiaCarrinho.push({ nome: nome, preco: preco, quantidade: 1 })
+        } else {
+            item.quantidade++
+        }
+
+        setItens(copiaCarrinho)
+    }
+
+    const removeItem = (nome) => {
+
+        const copiaCarrinho = [...itens]
+        const item = copiaCarrinho.find((produto) => produto.nome === nome)
+
+        if (item.quantidade > 1) {
+            item.quantidade--
+            setItens(copiaCarrinho)
+        } else {
+            const arrayFiltered = copiaCarrinho.filter((produto) => produto.nome !== nome)
+            setItens(arrayFiltered)
+        }
+    }
+
+    useEffect(() => {
+        localStorage.setItem('carrinho', JSON.stringify(itens));
+    }, [itens]);
+
     return (
         <>
             <GlobalStyle></GlobalStyle>
-            <Cabecalho></Cabecalho>
+            <Cabecalho
+                showCarrinho={showCarrinho}></Cabecalho>
             <Main>
                 <Aside
-                minimo={minimo} handleMinimo={handleMinimo}
-                maximo={maximo} handleMaximo={handleMaximo}
-                nomeProduto={nomeProduto} handleNomeProduto={handleNomeProduto}
-                setFiltro={setFiltro} handleOrdenacao={handleOrdenacao}>
+                    minimo={minimo} handleMinimo={handleMinimo}
+                    maximo={maximo} handleMaximo={handleMaximo}
+                    nomeProduto={nomeProduto} handleNomeProduto={handleNomeProduto}
+                    setFiltro={setFiltro} handleOrdenacao={handleOrdenacao}>
                 </Aside>
-                <Principal>
-                {
-                    Produtos.filter((produto) => {
-                        if (maximo !== 0 && filtro) {
-                            return produto.preco >= +minimo && produto.preco <= +maximo}
-                            else { return produto}
-                        })
-                        .filter((produto) => {
-                            if (nomeProduto !== "" & filtro) {
-                                return produto.nome.includes(nomeProduto)}
-                                else { return produto }
-                            })
-                            .sort((a, b) => {
-                                if (ordenacao === 1) {
-                                    return +a.preco - +b.preco;
-                                } else {
-                                    console.log(ordenacao)
-                                    return +b.preco - +a.preco}
-                                })
-                                .map((produto) => {
-                                    return <Produto
-                                    key={produto.nome}
-                                    nome={produto.nome}
-                                    preco={produto.preco}
-                                    imagem={produto.imagem}>
-                                    </Produto>
-                                })
-                        }
-                </Principal>
+                <Produtos
+                    maximo={maximo}
+                    minimo={minimo}
+                    filtro={filtro}
+                    ordenacao={ordenacao}
+                    nomeProduto={nomeProduto}
+                    addItem={addItem}>
+                </Produtos>
+                <Carrinho
+                    carrinho={carrinho}
+                    showCarrinho={showCarrinho}
+                    itens={itens}
+                    removeItem={removeItem}>
+                </Carrinho>
             </Main>
+            <Footer></Footer>
         </>
 
     );

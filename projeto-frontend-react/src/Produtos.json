@@ -21,19 +21,19 @@
         "nome": "Camisa Paranoid Android",
         "preco": "100",
         "tipo": "Roupa",
-        "imagem": "https://http2.mlstatic.com/D_NQ_NP_637572-MLB46813031023_072021-W.jpg"
+        "imagem": "https://img.elo7.com.br/product/main/3C68EA9/manga-longa-masculina-radiohead-paranoid-android.jpg"
     },
     {
         "nome": "Camisa Cowboy Bebop",
         "preco": "100",
         "tipo": "Roupa",
-        "imagem": "https://img.elo7.com.br/product/main/282BD3D/camiseta-cowboy-bebop-spike-see-you-space-cowboy-animes-anime.jpg"
+        "imagem": "https://img.elo7.com.br/product/zoom/3E3CB7A/camiseta-camisa-cowboy-bebop-spike-spiegel-watanabe-anime-camiseta.jpg"
     },
     {
-        "nome": "Camisa Blade Runner",
+        "nome": "Camisa Hal 9.000",
         "preco": "100",
         "tipo": "Roupa",
-        "imagem": "https://ae01.alicdn.com/kf/H3bbd5e91fd734869b5e94be64aca030bK/Blade-runner-2049-ryan-gosling-filme-k-e-joi-preto-camiseta-de-manga-curta.jpg_Q90.jpg_.webp"
+        "imagem": "https://imusic.b-cdn.net/images/item/original/219/5057245804219.jpg?2001-a-space-odyssey-2017-hal-9000-t-shirt&class=scaled"
     },
     {
         "nome": "Viagem para Buraco Negro",
@@ -69,6 +69,6 @@
         "nome": "Endurance",
         "preco": "20000",
         "tipo": "Espaçonave",
-        "imagem": "https://www.google.com/url?sa=i&url=https%3A%2F%2Finterstellarfilm.fandom.com%2Fwiki%2FEndurance&psig=AOvVaw1qL4bmMA73wLVfyydT10j1&ust=1670363057683000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIjXwbW54_sCFQAAAAAdAAAAABAE"
+        "imagem": "https://i.pinimg.com/originals/de/77/8a/de778aaf8ac0078bf6a3851422a731b2.jpg"
     }
 ]

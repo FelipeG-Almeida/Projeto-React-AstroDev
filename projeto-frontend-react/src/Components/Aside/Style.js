@@ -1,50 +1,64 @@
 import styled from "styled-components";
 
 export const Filtros = styled.aside`
-    background-color: #2B0D4A;
+    background-color: #F13A08;
+    border-radius: .4em;
+    bottom: 100px;
     display: flex;
     flex-direction: column;
+    height: 26em;
+    margin-left: 1em;
     padding: 1.5em;
+    position: sticky;
+    top: 144.875px;
 `
 
 export const Titulo = styled.h2`
-    color: #FFFFFF;
+    color: #FFF;
+    text-transform: uppercase;
 `
 export const Label = styled.label`
+    font-size: 11pt;
     padding-top: 1em;
     padding-bottom: .5em;
-    color: #FFFFFF;
+    color: #FFF;
 `
 
 export const Select = styled.select`
-    background-color: #27214d;
-    border: 1px solid #fff;
+    border: none;
     border-radius: .75em;
-    color: #FFF;
+    color: #000;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 11pt;
     padding: .5em 1em;
-    font-size: 12pt;
+    &:focus {
+        outline: none;
+    }
 `
 
 export const Input = styled.input`
-    background-color: #27214d;
-    border: 1px solid #fff;
+    border: none;
     border-radius: .75em;
-    color: #FFF;
+    color: #000;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 11pt;
     padding: .5em 1em;
-    font-size: 12pt;
+    &:focus {
+        outline: none;
+    }
 `
 export const Botão = styled.button`
-    background-color: #27214d;
-    border: 1px solid #fff;
+    border: none;
     border-radius: .75em;
-    color: #FFF;
-    font-size: 12pt;
+    color: #000;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 11pt;
     margin-top: 1em;
     padding: .5em 1em;
     transition: .25s all;
     &:hover {
         cursor: pointer;
-        background-color: #FFF;
-        color: #27214d;
+        background-color: #000;
+        color: #FFF;
     }
 `
