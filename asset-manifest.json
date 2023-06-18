@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/FelipeG-Almeida/Projeto-React-AstroDev/static/js/main.5db9718f.js",
-    "index.html": "/FelipeG-Almeida/Projeto-React-AstroDev/index.html",
-    "main.5db9718f.js.map": "/FelipeG-Almeida/Projeto-React-AstroDev/static/js/main.5db9718f.js.map"
+    "main.js": "/Projeto-React-AstroDev/static/js/main.e2340d6f.js",
+    "index.html": "/Projeto-React-AstroDev/index.html",
+    "main.e2340d6f.js.map": "/Projeto-React-AstroDev/static/js/main.e2340d6f.js.map"
   },
   "entrypoints": [
-    "static/js/main.5db9718f.js"
+    "static/js/main.e2340d6f.js"
   ]
 }
