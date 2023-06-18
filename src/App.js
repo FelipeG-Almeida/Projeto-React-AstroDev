@@ -6,9 +6,11 @@ import Carrinho from './Components/Carrinho/Carrinho';
 import Aside from './Components/Aside/Aside';
 import Produtos from './Components/Produtos/Produtos';
 import Footer from './Components/Footer/Footer';
-import background from './Assets/Images/background.png'
 
 const GlobalStyle = createGlobalStyle`
+    html {
+        height: 100%;
+    }
     body {
         font-family: 'Montserrat', sans-serif;
         height: 100%;
@@ -16,18 +18,28 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         width: 100%;
     }
+    #root {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
     h2 {
         margin: 0;
     }
 `
 
 const Main = styled.main`
-    background-image: url(${background});
-    background-size: 100%;
+    background-color: #171717;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 20% 1fr 0;
+    flex-grow: 2;
+    grid-template-columns: 268px 1fr 0;
     padding-bottom: 1em;
+    @media screen and (max-width: 767px) {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 function App() {

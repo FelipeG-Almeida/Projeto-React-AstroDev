@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 export const CardProduto = styled.div`
     background-color: #FFF;
-    border: 2px solid #000;
+    border: 2px solid #171717;
     border-radius: .4em;
     display: flex;
     flex-direction: column;
     height: 20em;
+    transition: 0.25s all;
     &:hover {
-        border-color: #F13A08;
+        border-color: #436ae5;
+        transform: scale(1.05)
     }
 `
 export const ImagemProduto = styled.img`
@@ -38,12 +40,13 @@ export const ButtonProduto = styled.button`
     border-radius: .25em;
     color: #FFF;
     font-family: 'Montserrat',sans-serif;
+    height: 52px;
     margin-left: 1.5em;
     padding: .75em;
     transition: .25s all;
     width: 75%;
     &:hover {
-        background-color: #F13A08;
+        background-color: ${props => (props.clicked ? '#32CD32' : '#436ae5')};
         cursor: pointer;
     }
 `

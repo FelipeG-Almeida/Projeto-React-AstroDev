@@ -7,6 +7,9 @@ export const FooterSection = styled.footer`
     justify-content: space-around;
     padding: 3em;
     width: calc(100% - 6em);
+    @media screen and (max-width: 1023px) {
+		flex-direction: column;
+	}
 `
 
 export const Header = styled.div`
@@ -17,7 +20,7 @@ export const Header = styled.div`
 `
 
 export const Logo = styled.img`
-    width: 25%;
+    width: 74px;
 `
 
 export const Title = styled.h3`
